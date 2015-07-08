@@ -1,0 +1,7 @@
+<!--This is the footer view,kept seperated so that it can be re-used -->
+<div id="footer">
+  Moosa Jafri &copy; 2015 <a href="http://facebook.com/moosa.jafri">Find Me On Facebook</a>
+ </div><!-- <div class="footer">-->
+ </div><!--<div id="wrapper">-->
+</body>
+</html>
