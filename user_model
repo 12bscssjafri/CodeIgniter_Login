@@ -1,20 +1,33 @@
+
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+
+//This is the user model extedning code igniters built in model class.
+
 class User_model extends CI_Model {
  public function __construct()
  {
   parent::__construct();
  }
+ 
+ 
+ 
  function login($email,$password)
  {
+
+  //Get details from database of the user.
   $this->db->where("email",$email);
   $this->db->where("password",$password);
 
   $query=$this->db->get("user");
+  
+  //if the query returns a result,this means that the user already exists! time to set the session ! 
+  
   if($query->num_rows()>0)
   {
    foreach($query->result() as $rows)
    {
-    //add all data to session
+    //add all the data to session
     $newdata = array(
       'user_id'  => $rows->id,
       'user_name'  => $rows->username,
@@ -22,11 +35,15 @@ class User_model extends CI_Model {
       'logged_in'  => TRUE,
     );
    }
+   
    $this->session->set_userdata($newdata);
    return true;
   }
+  //else,user doesnt exist,return false!
   return false;
  }
+ 
+ //This is the signup function where just all of the fields are stored in the database!
  public function add_user()
  {
   $data=array(
