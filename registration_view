@@ -1,0 +1,70 @@
+
+<!--This is the main view, here i've used two custom bootstrap forms for sign in and sign up, 
+please note that i'm not very good with front end designing and this was just an attempt to show that i can integrate bootstrap with codeigniter-->
+
+<head>
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
+</head>
+<div id="content">
+	<h2>Sign In: </h2>
+	<br>
+	<div class="signup_wrap">
+		<div class="signin_form">
+			<?php $attributes = array("role" => "form") ?>
+			<?php echo form_open("user/login",$attributes); ?>
+			<div class="form-group">
+				<label for="email">Email address:</label>
+				<input type="email" class="form-control" id="email" name="email" placeholder="abcd@xyz.com" value="" >
+			</div>
+			<div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" class="form-control" id="pass" name="pass" value="" >
+			</div>
+			<button type="submit" class="btn btn-default" >Login</button>
+			<?php echo form_close(); ?>
+		</div>
+		<!--<div class="signin_form">-->
+	</div>
+	<!--<div class="signup_wrap">-->
+	<br><br>
+	<h1>New Member? Sign Up, Its Absolutely Free !</h1>
+	<br><br>
+	<div class="container">
+		<div class="row">
+			<?php $attributes2 = array("role" => "form") ?>
+			<?php echo validation_errors('<p class="error">'); ?>
+			<?php echo form_open("user/registration",$attributes2); ?>
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label for="user_name">User Name:</label>
+					<div class="input-group">
+						<input type="text" class="form-control" id="user_name" name="user_name" value="<?php echo set_value('user_name'); ?>" placeholder="Enter Name" required>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email_address">Your Email:</label>
+					<div class="input-group">
+						<input type="email" class="form-control" id="email_address" name="email_address"  value="<?php echo set_value('email_address'); ?>"  placeholder="Enter Email" required>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+					</div>
+				</div>
+				<div class="input-group">
+					<label for="password">Password</label>
+					<input type="password" class="form-control" id="password" name="password" value="<?php echo set_value('password'); ?>" >
+				</div>
+				<br>
+				<div>
+					<label for="con_password">Confirm Password:</label>
+					<input type="password" id="con_password" class="form-control" name="con_password" value="<?php echo set_value('con_password'); ?>" />
+				</div>
+				<br><br>
+				<input type="submit" name="submit" id="submit" value="Sign Up!" class="btn btn-info pull-right">
+			</div>
+		</div>
+	</div>
+</div>
+<?php echo form_close(); ?>
+</div><!--<div id="content">-->
+<script type="text/javascript" src="<?php echo base_url("assets/js/jQuery-1.10.2.js"); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
